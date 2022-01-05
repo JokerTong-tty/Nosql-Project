@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home</title>
+
+    <!-- Required CSS files -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/answer/css/owl.carousel.css">
+    <link rel="stylesheet" href="../../static/answer/css/barfiller.css">
+    <link rel="stylesheet" href="../../static/answer/css/animate.css">
+    <link rel="stylesheet" href="../../static/answer/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/answer/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/answer/css/slicknav.css">
+    <link rel="stylesheet" href="../../static/answer/css/main.css">
+    <link rel="stylesheet" href="../../static/answer/css/list.css">
+</head>
+
+<body>
+<div class="preloader">
+    <span class="preloader-spin"></span>
+</div>
+<div class="site">
+
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-sm-3 logo-column">
+                    <a href="{% url 'user:index' %}" class="logo">
+                        <h2 style="color: white">
+                            <span><img style="height: 35px"
+                                       src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=379226345,3276899612&fm=26&gp=0.jpg"></span>天宇医疗集团
+                        </h2>
+                    </a>
+                </div>
+                <div class="col-6 col-sm-9 nav-column clearfix">
+                    <div class="right-nav">
+                        <span class="search-icon fa fa-search"></span>
+                        <form action="#" class="search-form">
+                            <input type="search" placeholder="search now">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                        <div class="header-social">
+                            {% if request.session.username %}
+                                <span>欢迎&nbsp;&nbsp;{{ request.session.username }}</span>
+                            {% else %}
+                                <a href="{% url 'user:login' %}">
+                                <span>
+                                <img src="/static/user/login.png" alt=""
+                                     style="height: 40px">
+                                登录
+                            </span>
+                                </a>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                    <nav id="menu" class="d-none d-lg-block">
+                        <ul>
+                            <li class="current-menu-item">
+                                <a href="{% url 'user:index' %}">主页</a>
+                            </li>
+                            <li><a href="{% url 'user:list_star' %}">我的关注</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero-slider">
+        <div class="single-slide" style="background-image: url(../../static/answer/img/slide1.jpg)">
+            <div class="inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="slide-content">
+                                <h2>数科首个AI医生"国毅"在线解答</h2>
+                                <p>什么是快乐星球,如果你想知道的话,现在就带你研究</p>
+
+                                <div class="slide-btn">
+                                    <a href="{% url 'answer:chat' %}" class="button">开始咨询</a>
+                                    {#                                    <a href="#" class="button-2">Live Preview</a>#}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="single-slide" style="background-image: url(../../static/answer/img/slide2.jpg)">
+            <div class="inner">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <div class="slide-content">
+                                <h2>数科首个AI医生"国毅"在线解答</h2>
+
+                                <p>什么是快乐星球,如果你想知道的话,现在就带你研究</p>
+
+                                <div class="slide-btn">
+                                    <a href="{% url 'answer:chat' %}" class="button">开始咨询</a>
+                                    {#                                    <a href="#" class="button-2">Live Preview</a>#}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="single-slide" style="background-image: url(../../static/answer/img/slide3.jpg)">
+            <div class="inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="slide-content">
+                                <h2>数科首个AI医生"国毅"在线解答</h2>
+
+                                <p>什么是快乐星球,如果你想知道的话,现在就带你研究</p>
+                                <div class="slide-btn">
+                                    <a href="{% url 'answer:chat' %}" class="button">开始咨询</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 text-center">
+                            <div class="inner embed-responsive embed-responsive-16by9" data-margin="25px 0 0">
+                                <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="brand-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6 single-brand">
+                    <div class="inner">
+                        <a href="#">
+                            <img src="../../static/answer/img/brand1.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 single-brand">
+                    <div class="inner">
+                        <a href="#">
+                            <img src="../../static/answer/img/brand2.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 single-brand">
+                    <div class="inner">
+                        <a href="#">
+                            <img src="../../static/answer/img/brand3.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 single-brand">
+                    <div class="inner">
+                        <a href="#">
+                            <img src="../../static/answer/img/brand4.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="service-area bg2 sp">
+        <div class="container">
+            <div class="section-title">
+                <h2>为您推荐</h2>
+                <p>根据您的喜好以及最近浏览记录而推送</p>
+            </div>
+
+            <div class="row">
+                {% for data in articles %}
+                    {% if forloop.counter <= 3 %}
+                        <div class="col-lg-4 col-md-6 single-service">
+                            <div class="inner">
+                                <div class="title">
+                                    <div class="icon">
+                                        <i class="fa fa-bullhorn"></i>
+                                    </div>
+                                    <h4>{{ data.title }}</h4>
+                                </div>
+                                <div class="content">
+                                    <p>{{ data.type }}</p>
+                                    <span>
+                                        <span>{{ data.date }}</span>
+                                        <a href="/user/article/{{ data.article_id }}"  style="right:25px;position: absolute" class="button">查看详情</a>
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                {% for data in hots %}
+                    {% if forloop.counter <= 3 %}
+                        <div class="col-lg-4 col-md-6 single-service">
+                            <div class="inner">
+                                <div class="title">
+                                    <div class="icon">
+                                        <i class="fa fa-bar-chart"></i>
+                                    </div>
+                                    <h4>{{ data.title }}</h4>
+                                </div>
+                                <div class="content">
+                                    <p>{{ data.type }}</p>
+                                    <span>
+                                        <span>{{ data.date }}</span>
+                                        <a href="/user/article/{{ data.article_id }}"  style="right:25px;position: absolute" class="button">查看详情</a>
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </div>
+    <div class="portfolio-area sp">
+        <div class="container">
+            <div class="section-title">
+                <h2>医生资讯</h2>
+                <p>分享一些医生推荐的文章.</p>
+            </div>
+            <div class="warpbox">
+                <!--# 选项卡 -->
+                <div class="table_card">
+                    <ul class="tab">
+                        <li class="activ">医学常识</li>
+                        <li>走出亚健康</li>
+                        <li>医疗建设</li>
+                    </ul>
+                    <div class="tabCon">
+                        <div class="on">
+                            <ul class="newslist01">
+                                <li><a href="#"><span></span>食物过敏危害不亚于毒素<span class="ding">【置顶】</span></a><span
+                                        class="time">2020-07-16 02:20:00</span></li>
+                                <li><a href="#"><span></span>重庆推进医养结合服务<span class="ding">【置顶】</span></a><span
+                                        class="time">2020-07-16 02:19:59</span></li>
+                                <li><a href="#"><span></span>世界过敏性疾病日<span class="ding"></span></a><span class="time">2020-07-16 02:19:53</span>
+                                </li>
+                                <li><a href="#"><span></span>上海专家为男子切除先天性巨结肠<span class="ding"></span></a><span
+                                        class="time">2020-07-07 01:01:54</span></li>
+                                <li><a href="#"><span></span>北京三类人群必须做核酸检测<span class="ding"></span></a><span
+                                        class="time">2020-07-07 01:01:54</span></li>
+                                <li><a href="#"><span></span>端午节吃粽子要注意什么<span class="ding"></span></a><span
+                                        class="time">2020-07-07 01:01:53</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="newslist01">
+                                <li><a href="#"><span></span>广东造血干细胞捐献突破900例<span class="ding">【置顶】</span></a><span
+                                        class="time">2020-07-16 02:19:58</span></li>
+                                <li><a href="#"><span></span>骨再生领域蛋壳显“身手”<span class="ding">【置顶】</span></a><span
+                                        class="time">2020-07-16 02:19:56</span></li>
+                                <li><a href="#"><span></span>教育部谈考生防护<span class="ding"></span></a><span class="time">2020-07-16 02:19:56</span>
+                                </li>
+                                <li><a href="#"><span></span>多国科学家研究发现：多吃果蔬可预防糖尿病<span class="ding"></span></a><span
+                                        class="time">2020-07-16 02:19:55</span></li>
+                                <li><a href="#"><span></span>“甘肃方剂”院内制剂在全省调剂使用：携带<span class="ding"></span></a><span
+                                        class="time">2020-07-07 01:01:53</span></li>
+                                <li><a href="#"><span></span>最新研究：大脑非神经元细胞可转化为功能性神<span class="ding"></span></a><span
+                                        class="time">2020-07-07 01:01:53</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="newslist01">
+                                <li><a href="#"><span></span>糖尿病患者趋年轻化<span class="ding">【置顶】</span></a><span
+                                        class="time">2020-07-16 02:19:58</span></li>
+                                <li><a href="#"><span></span>江西一医院“反弹琵琶”为“镜面人”成功切<span class="ding">【置顶】</span></a><span
+                                        class="time">2020-07-16 02:19:55</span></li>
+                                <li><a href="#"><span></span>黑龙江“北药”种植面积260万亩<span class="ding"></span></a><span
+                                        class="time">2020-07-16 02:19:53</span></li>
+                                <li><a href="#"><span></span>一男子被棕熊咬伤半边脸<span class="ding"></span></a><span
+                                        class="time">2020-07-16 02:19:53</span></li>
+                                <li><a href="#"><span></span>广州举办预防接种疫苗科普讲解大赛<span class="ding"></span></a><span
+                                        class="time">2020-07-07 01:01:54</span></li>
+                                <li><a href="#"><span></span>运动治疗加饮食调整<span class="ding"></span></a><span class="time">2020-07-07 01:01:54</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="testimonial-area sp bg1">
+        <div class="container">
+            <div class="section-title white">
+                <h2>认证医生</h2>
+                <p>由本集团从各知名医院挑选的医生..</p>
+            </div>
+            <div class="testimonial-slider">
+                {% for data in doctors %}
+                    {% if forloop.counter < 8 %}
+                        <div class="single-slide">
+                            <div class="inner">
+                                <div class="client-info">
+                                    <div class="client-img">
+                                        <img src="../../static/answer/img/client.jpg" alt="client">
+                                    </div>
+                                    <div class="client-data">
+                                        <h4>{{ data.name }}</h4><br><br>
+                                        <span>{{ data.position }}</span><br><br>
+                                        <span>{{ data.department }}</span><br><br>
+                                        <span>{{ data.hospital }}</span><br><br>
+                                        <span>关注量:{{ data.stars }} <a style="color: white"
+                                                                      onclick="star_doctor('{{ data.doc_id }}')"
+                                                                      class="button">关注</a></span><br><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <div class="faq-area sp bg2">
+        <div class="container">
+            <div class="section-title">
+                <h2>最新咨询</h2>
+                <p>最新咨询的问题</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="faq">
+                        {% for data in questions %}
+                            {% if forloop.counter < 10 %}
+                                <div class="single-item">
+                                    <h4>{{ data.ask_time }}:&nbsp;&nbsp;{{ data.question }}</h4>
+                                    <div class="content">
+                                        {{ data.answer }}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="faq-img text-center">
+                        <img src="../../static/answer/img/fag-img.png" alt="faq">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="copyright-txt">
+                            Joker &copy; 2021.天宇医疗集团.
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-right">
+                        <div class="footer-nav">
+                            <a style="color:white;"
+                               href="https://blog.csdn.net/Weary_PJ?spm=1000.2115.3001.5343">联系作者</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</div>
+
+<!--Required JS files-->
+<script src="../../static/answer/js/jquery-2.2.4.min.js"></script>
+<script src="../../static/answer/js/vendor/popper.min.js"></script>
+<script src="../../static/answer/js/vendor/bootstrap.min.js"></script>
+<script src="../../static/answer/js/vendor/owl.carousel.min.js"></script>
+<script src="../../static/answer/js/vendor/isotope.pkgd.min.js"></script>
+<script src="../../static/answer/js/vendor/jquery.barfiller.js"></script>
+<script src="../../static/answer/js/vendor/loopcounter.js"></script>
+<script src="../../static/answer/js/vendor/slicknav.min.js"></script>
+<script src="../../static/answer/js/active.js"></script>
+<script>
+    function star_doctor(doc_id) {
+        $.ajax({
+            type: "POST",
+            url: "/user/star_doctor/" + doc_id,
+            dataType: "json",
+            success: function (data) {
+                if (data.flag) {
+                    alert('关注成功')
+                } else {
+                    alert('已经关注')
+                }
+            },
+            error: function () {
+                console.log('获取数据异常')
+            }
+        })
+    }
+</script>
+<script type="text/javascript">
+    $(document).ready(function (e) {
+        $(".tab li").click(function () {
+            $(this).parent(".tab").children("li").eq($(this).index()).addClass("activ").siblings().removeClass("activ");
+            $(this).parent(".tab").next(".tabCon").children("div").hide().eq($(this).index()).show();
+        })
+    });
+</script>
+</body>
+
+</html>

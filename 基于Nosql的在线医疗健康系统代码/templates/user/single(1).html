@@ -1,0 +1,295 @@
+<!doctype html>
+<head>
+    <!-- META TAGS -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Knowledge Base Theme</title>
+
+    <link rel="shortcut icon" href="images/favicon.png" />
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/answer/css/owl.carousel.css">
+    <link rel="stylesheet" href="../../static/answer/css/barfiller.css">
+    <link rel="stylesheet" href="../../static/answer/css/animate.css">
+    <link rel="stylesheet" href="../../static/answer/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/answer/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/answer/css/slicknav.css">
+    <link rel="stylesheet" href="../../static/answer/css/main.css">
+    <link rel="stylesheet" href="../../static/answer/css/list.css">
+    <!-- Style Sheet-->
+    <link rel="stylesheet" href="style.css"/>
+    <link rel='stylesheet' id='bootstrap-css-css'  href='../../static/answer/css/bootstrap5152.css?ver=1.0' type='text/css' media='all' />
+    <link rel='stylesheet' id='responsive-css-css'  href='../../static/answer/css/responsive5152.css?ver=1.0' type='text/css' media='all' />
+    <link rel='stylesheet' id='pretty-photo-css-css'  href='../../static/answer/css/prettyPhotoaeb9.css?ver=3.1.4' type='text/css' media='all' />
+    <link rel='stylesheet' id='main-css-css'  href='../../static/answer/css/main5152.css?ver=1.0' type='text/css' media='all' />
+    <link rel='stylesheet' id='custom-css-css'  href='../../static/answer/css/custom5152.html?ver=1.0' type='text/css' media='all' />
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="js/html5.js"></script></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<!-- Start of Header -->
+<div class="header-wrapper">
+         <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-sm-3 logo-column">
+                    <a href="{% url 'user:index' %}" class="logo">
+                        <h2 style="color: white">
+                            <span><img style="height: 35px"
+                                       src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=379226345,3276899612&fm=26&gp=0.jpg"></span>天宇医疗集团
+                        </h2>
+                    </a>
+                </div>
+                <div class="col-6 col-sm-9 nav-column clearfix">
+                    <div class="right-nav">
+                        <span class="search-icon fa fa-search"></span>
+                        <form action="#" class="search-form">
+                            <input type="search" placeholder="search now">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                        <div class="header-social">
+                            {% if request.session.username %}
+                                <span>欢迎&nbsp;&nbsp;{{ request.session.username }}</span>
+                            {% else %}
+                                <a href="{% url 'user:login' %}">
+                                <span>
+                                <img src="/static/user/login.png" alt=""
+                                     style="height: 40px">
+                                登录
+                            </span>
+                                </a>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                    <nav id="menu" class="d-none d-lg-block">
+                        <ul>
+                            <li class="current-menu-item">
+                                <a href="{% url 'user:index' %}">主页</a>
+                            </li>
+                            <li><a href="{% url 'user:list_star' %}">我的关注</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+</div>
+<!-- End of Header -->
+
+<!-- Start of Page Container -->
+<div class="page-container">
+    <div class="container">
+        <div class="row" style="width: 1200px">
+
+            <!-- start of page content -->
+            <div class="span8 page-content">
+
+                <ul class="breadcrumb">
+                    <li><a href="#">{{ article.type}}</a><span class="divider">/</span></li>
+                    <li class="active">{{article.title}}</li>
+                </ul>
+
+                <article class=" type-post format-standard hentry clearfix">
+
+                    <h1 class="post-title"><a href="#">{{article.title}}</a></h1>
+
+                    <div class="post-meta clearfix">
+                        <span class="date">{{article.date}}</span>
+                        <span class="category"><a href="#" title="View all posts in Server &amp; Database">{{article.type}}</a></span>
+                        <span class="comments"><a href="#" title="Comment on Integrating WordPress with Your Website">3</a></span>
+                        <span class="like-count">{{hot}}</span>
+                    </div><!-- end of post meta -->
+
+               <p style="font-size18px; line-height: 35px">{{article.content}}</p>
+
+                </article>
+
+                <div class="like-btn">
+
+                    <form id="like-it-form" action="#" method="post">
+                        <span class="like-it ">{{ hot}}</span>
+                        <input type="hidden" name="post_id" value="99">
+                        <input type="hidden" name="action" value="like_it">
+                    </form>
+
+                    <span class="tags">
+                         <strong>Tags:&nbsp;&nbsp;</strong><a href="#" rel="tag">{{ article.type}}</a></span>
+
+                </div>
+
+                <section id="comments">
+
+
+
+
+
+                    <div id="respond">
+
+                        <h3>Leave a Reply</h3>
+
+                        <div class="cancel-comment-reply">
+                            <a rel="nofollow" id="cancel-comment-reply-link" href="#" style="display:none;">Click here to cancel reply.</a>
+                        </div>
+
+
+                        <form action="#" method="post" id="commentform">
+
+
+                            <p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>
+
+                            <div>
+                                <label for="author">Name *</label>
+                                <input class="span4" type="text" name="author" id="author" value="" size="22">
+                            </div>
+
+                            <div>
+                                <label for="email">Email *</label>
+                                <input class="span4" type="text" name="email" id="email" value="" size="22" >
+                            </div>
+
+                            <div>
+                                <label for="url">Website</label>
+                                <input class="span4" type="text" name="url" id="url" value="" size="22" >
+                            </div>
+
+
+                            <div>
+                                <label for="comment">Comment</label>
+                                <textarea class="span8" name="comment" id="comment" cols="58" rows="10"></textarea>
+                            </div>
+
+                            <p class="allowed-tags">You can use these HTML tags and attributes <small><code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; </code></small></p>
+
+                            <div>
+                                <input class="btn" name="submit" type="submit" id="submit"  value="Submit Comment">
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </section><!-- end of comments -->
+
+            </div>
+            <!-- end of page content -->
+
+
+            <!-- start of sidebar -->
+            <aside class="span4 page-sidebar">
+
+                <section class="widget">
+                    <div class="support-widget">
+                        <h3 class="title">Support</h3>
+                        <p class="intro">Need more support? If you did not found an answer, contact us for further help.</p>
+                    </div>
+                </section>
+
+
+                <section class="widget">
+                    <h3 class="title">Featured Articles</h3>
+                    <ul class="articles">
+                        <li class="article-entry standard">
+                            <h4><a href="single.html">Integrating WordPress with Your Website</a></h4>
+                            <span class="article-meta">25 Feb, 2013 in <a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a></span>
+                            <span class="like-count">66</span>
+                        </li>
+                        <li class="article-entry standard">
+                            <h4><a href="single.html">WordPress Site Maintenance</a></h4>
+                            <span class="article-meta">24 Feb, 2013 in <a href="#" title="View all posts in Website Dev">Website Dev</a></span>
+                            <span class="like-count">15</span>
+                        </li>
+                        <li class="article-entry video">
+                            <h4><a href="single.html">Meta Tags in WordPress</a></h4>
+                            <span class="article-meta">23 Feb, 2013 in <a href="#" title="View all posts in Website Dev">Website Dev</a></span>
+                            <span class="like-count">8</span>
+                        </li>
+                        <li class="article-entry image">
+                            <h4><a href="single.html">WordPress in Your Language</a></h4>
+                            <span class="article-meta">22 Feb, 2013 in <a href="#" title="View all posts in Advanced Techniques">Advanced Techniques</a></span>
+                            <span class="like-count">6</span>
+                        </li>
+                    </ul>
+                </section>
+
+
+
+                <section class="widget"><h3 class="title">Categories</h3>
+                    <ul>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet,">Advanced Techniques</a> </li>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet,">Designing in WordPress</a></li>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet,">Server &amp; Database</a></li>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet, ">Theme Development</a></li>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet,">Website Dev</a></li>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet,">WordPress for Beginners</a></li>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet, ">WordPress Plugins</a></li>
+                    </ul>
+                </section>
+
+                <section class="widget">
+                    <h3 class="title">Recent Comments</h3>
+                    <ul id="recentcomments">
+                        <li class="recentcomments"><a href="#" rel="external nofollow" class="url">John Doe</a> on <a href="#">Integrating WordPress with Your Website</a></li>
+                        <li class="recentcomments">saqib sarwar on <a href="#">Integrating WordPress with Your Website</a></li>
+                        <li class="recentcomments"><a href="#" rel="external nofollow" class="url">John Doe</a> on <a href="#">Integrating WordPress with Your Website</a></li>
+                        <li class="recentcomments"><a href="#" rel="external nofollow" class="url">Mr WordPress</a> on <a href="#">Installing WordPress</a></li>
+                    </ul>
+                </section>
+
+            </aside>
+            <!-- end of sidebar -->
+        </div>
+    </div>
+</div>
+<!-- End of Page Container -->
+
+<!-- Start of Footer -->
+<footer>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="copyright-txt">
+                            Joker &copy; 2021.天宇医疗集团.
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-right">
+                        <div class="footer-nav">
+                            <a style="color:white;"
+                               href="https://blog.csdn.net/Weary_PJ?spm=1000.2115.3001.5343">联系作者</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+<!-- End of Footer -->
+
+<a href="#top" id="scroll-top"></a>
+
+<!-- script -->
+<script type='text/javascript' src='../../static/answer/js/single/jquery-1.8.3.min.js'></script>
+<script type='text/javascript' src='../../static/answer/js/single/jquery.easing.1.3.js'></script>
+<script type='text/javascript' src='../../static/answer/js/single/jquery.prettyPhoto.js'></script>
+<script type='text/javascript' src='../../static/answer/js/single/jflickrfeed.js'></script>
+<script type='text/javascript' src='../../static/answer/js/single/jquery.liveSearch.js'></script>
+<script type='text/javascript' src='../../static/answer/js/single/jquery.form.js'></script>
+<script type='text/javascript' src='../../static/answer/js/single/jquery.validate.min.js'></script>
+<script type='text/javascript' src='../../static/answer/js/single/custom.js'></script>
+
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>

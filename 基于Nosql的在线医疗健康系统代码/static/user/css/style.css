@@ -1,0 +1,136 @@
+html, body {width:100%;height:100%;} /*非常重要的样式让背景图片100%适应整个屏幕*/
+
+.my-navbar {padding:10px 0;transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;}
+.my-navbar a{background:transparent !important;color:#fff !important}
+.my-navbar a:hover {color:#45bcf9 !important;background:transparent;outline:0}
+.my-navbar a {transition: color 0.5s ease-in-out;}
+.top-nav {padding:0;background:#000;height: 60px}
+.dropdown-menu {background:transparent !important;color:#ffffff !important}
+.dropdown-menu a{background:transparent !important;color: #fafad2 !important;font-size: 16px}
+
+.btn{
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    background:linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    color: #fff;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+    7px 7px 20px 0px rgba(0, 0, 0, .1),
+    4px 4px 5px 0px rgba(0, 0, 0, .1);
+    outline: none;
+    position: relative;
+    z-index: 0;
+}
+.btn::before{
+    position:absolute;
+    content: '';
+    left: 0;
+    bottom:0;
+    width: 100%;
+    height: 0;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    background: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);
+    z-index: -1;
+}
+.btn:hover::before{
+    top: 0;
+    height: 100%;
+}
+.btn:active{
+    top: 2px;
+}
+
+.button1 {
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    padding: 8px 16px;
+    text-align: center;
+    width: 95px;
+    height: 48px;
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    border-radius:5px;
+}
+.button1:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.carousel-inner{background-size: cover;background-repeat: no-repeat;background-position: bottom center;height: 830px;width: 100%}
+.carousel-inner .item img{width:100%}
+.all_view p{
+    padding-top: 20px;
+}
+.view_img{
+    padding-left: 180px;
+    float: left;
+    margin-left: 5px;
+}
+.all_view img{
+    width: 500px;
+    height: 250px;
+    border-radius: 5px;
+    border: 1px solid black;
+    float: left;
+    padding: 5px;
+    margin-top: 5px;
+    margin-right: 3px;
+}
+
+.all_food p{
+    padding-top: 20px;
+
+}
+
+.all_food img{
+    width: 450px;
+    height: 250px;
+    border-radius: 5px;
+    border: 1px solid black;
+    float: left;
+    padding: 5px;
+    margin-top: 2px;
+    margin-right: 3px;
+}
+
+.food_img1{
+    padding-left: 70px;
+    float: left;
+    margin-left: 5px;
+}
+.food_img2{
+    padding-top: 30px;
+    float: left;
+    margin-left: 5px;
+}
+.food_img3{
+    padding-top: 60px;
+    float: left;
+    margin-left: 5px;
+}
+.all_culture{
+    padding-top: 80px;
+}
+.all_culture img{
+    width: 400px;
+    height: 250px;
+    border-radius: 5px;
+    border: 1px solid black;
+    float: left;
+    padding-top: 2px;
+    margin-top: 2px;
+    margin-right: 3px;
+}
+
+.culture_img{
+    padding-left: 75px;
+    float: left;
+    margin-left: 5px;
+}

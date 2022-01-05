@@ -1,0 +1,185 @@
+<html>
+<head>
+    <title>chat UI</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="https://blog.csdn.net/q475254344">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <!-- Required CSS files -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/answer/css/owl.carousel.css">
+    <link rel="stylesheet" href="../../static/answer/css/barfiller.css">
+    <link rel="stylesheet" href="../../static/answer/css/animate.css">
+    <link rel="stylesheet" href="../../static/answer/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/answer/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/answer/css/slicknav.css">
+    <link rel="stylesheet" href="../../static/answer/css/main.css">
+    <link href="../../static/answer/css/chat.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+          crossorigin="anonymous">
+
+</head>
+<script>
+    document.getElementsByTagName('body').height = window.innerHeight;
+</script>
+
+
+<body class="box">
+<div class="site">
+       <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-sm-3 logo-column">
+                    <a href="{% url 'user:index' %}" class="logo">
+                        <h2 style="color: white">
+                            <span><img style="height: 35px"
+                                       src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=379226345,3276899612&fm=26&gp=0.jpg"></span>天宇医疗集团
+                        </h2>
+                    </a>
+                </div>
+                <div class="col-6 col-sm-9 nav-column clearfix">
+                    <div class="right-nav">
+                        <span class="search-icon fa fa-search"></span>
+                        <form action="#" class="search-form">
+                            <input type="search" placeholder="search now">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                        <div class="header-social">
+                            {% if request.session.username %}
+                                <span>欢迎&nbsp;&nbsp;{{ request.session.username }}</span>
+                            {% else %}
+                                <a href="{% url 'user:login' %}">
+                                <span>
+                                <img src="/static/user/login.png" alt=""
+                                     style="height: 40px">
+                                登录
+                            </span>
+                                </a>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                    <nav id="menu" class="d-none d-lg-block">
+                        <ul>
+                            <li class="current-menu-item">
+                                <a href="{% url 'user:index' %}">主页</a>
+                            </li>
+                            <li><a href="{% url 'user:list_star' %}">我的关注</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+</div>
+<div class="chatcontainer">
+    <div class="chatbox">
+        <div class="chatleft">
+            <div class="top">
+                <i class="fas fa-bars" style="font-size: 1.4em"></i>
+                <input type="text" placeholder="search" style="width: 140px; height: 36px; margin-left: 25px;">
+                <button class="chatsearchbtn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="chatcenter">
+                <ul>
+                    <li>
+                        <img style="border-radius: 20px; vertical-align: middle;" src="/static/answer/img/client.jpg">
+                        <span style="margin-left: 10px;">AI医生TOP1:李国毅</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="chatright">
+            <div class="top">
+                <img style="border-radius: 20px; vertical-align: middle;" src="/static/answer/img/client.jpg">
+                <span style="margin-left: 20px;">AI医生TOP1:李国毅</span>
+                <i class="fas fa-ellipsis-v"
+                   style="font-size: 1.4em; position: absolute; right: 20px; color: gray;"></i>
+            </div>
+            <div class="chatcenter">
+                <ul class="chat">
+                    <li class="msgleft">
+                        <img style="border-radius: 20px; vertical-align: top;" src="/static/answer/img/client.jpg">
+                        <p class="msgcard">欢迎使用天宇医疗咨询系统, 请提出您的问题</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer">
+                <textarea maxlength="800" rows="5" type="text" id="textarea" cols="40"
+                          style="width: 100%; resize: none; border: none; " placeholder="请在此输入要发送的内容..."></textarea>
+                <button class="chatsendbtn" onclick="sendmsg()">发送</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <footer>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="copyright-txt">
+                            Joker &copy; 2021.天宇医疗集团.
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-right">
+                        <div class="footer-nav">
+                            <a style="color:white;"
+                               href="https://blog.csdn.net/Weary_PJ?spm=1000.2115.3001.5343">联系作者</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+<script>
+    function sendmsg() {
+        var text = $("#textarea").val();
+        if (text.value == "") {
+            alert("发送信息为空，请输入！");
+        } else {
+            $(".chat").append("<li class='msgright' align='right'>" +
+                "<p class='msgcard'>" + text + "</p>" +
+                "<img style='width:59px;height: 59px border-radius: 20px; vertical-align: top;' src='/static/answer/img/portfolio5.jpg'>" +
+                "</li>");
+            document.getElementById("textarea").value = "";
+            $.ajax({
+                type: "POST",
+                url: "/answer/get_answer/" + text,
+                dataType: "json",
+                success: function (data) {
+                    fourData = data;
+                    $(".chat").append("<li class='msgleft' align='left'>" +
+                        "<img style='border-radius: 20px; vertical-align: top;' src='/static/answer/img/client.jpg'>" +
+                        "<p class='msgcard'>" + fourData.answer + "</p>" +
+                        "</li>");
+                },
+                error: function () {
+                    console.log('获取数据异常')
+                }
+            });
+            text = "";
+        }
+
+
+    }
+</script>
+<!--Required JS files-->
+<script src="../../static/answer/js/jquery-2.2.4.min.js"></script>
+<script src="../../static/answer/js/vendor/popper.min.js"></script>
+<script src="../../static/answer/js/vendor/bootstrap.min.js"></script>
+<script src="../../static/answer/js/vendor/owl.carousel.min.js"></script>
+<script src="../../static/answer/js/vendor/isotope.pkgd.min.js"></script>
+<script src="../../static/answer/js/vendor/jquery.barfiller.js"></script>
+<script src="../../static/answer/js/vendor/loopcounter.js"></script>
+<script src="../../static/answer/js/vendor/slicknav.min.js"></script>
+<script src="../../static/answer/js/active.js"></script>
+</html>
+
+

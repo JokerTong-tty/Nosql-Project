@@ -1,0 +1,6 @@
+ObjectID(a21):hot,None:stars,ObjectID(a16):hot,dlrb:score,ObjectID(a11):hot,
+ObjectID(a18):hot,hot,ObjectID(a2):hot,xzq:score,tty:stars,ObjectID(a10):hot,
+tty:score,ObjectID(a7):hot,ObjectID(a17):hot,ObjectID(a15):hot,ObjectID(a4):hot,
+ObjectID(a14):hot,zqq:score,ObjectID(a1):hot,ObjectID(a9):hot,ObjectID(a19):hot,
+ObjectID(a3):hot,ObjectID(a0):hot,ObjectID(a5):hot,ObjectID(a8):hot,ObjectID(a13):hot,
+ObjectID(a6):hot,article_num

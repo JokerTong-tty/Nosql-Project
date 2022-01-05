@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>关注医生</title>
+
+    <!-- Required CSS files -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/answer/css/owl.carousel.css">
+    <link rel="stylesheet" href="../../static/answer/css/barfiller.css">
+    <link rel="stylesheet" href="../../static/answer/css/animate.css">
+    <link rel="stylesheet" href="../../static/answer/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/answer/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/answer/css/slicknav.css">
+    <link rel="stylesheet" href="../../static/answer/css/main.css">
+</head>
+
+<body>
+<div class="preloader">
+    <span class="preloader-spin"></span>
+</div>
+<div class="site">
+
+
+       <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-sm-3 logo-column">
+                    <a href="{% url 'user:index' %}" class="logo">
+                        <h2 style="color: white">
+                            <span><img style="height: 35px"
+                                       src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=379226345,3276899612&fm=26&gp=0.jpg"></span>天宇医疗集团
+                        </h2>
+                    </a>
+                </div>
+                <div class="col-6 col-sm-9 nav-column clearfix">
+                    <div class="right-nav">
+                        <span class="search-icon fa fa-search"></span>
+                        <form action="#" class="search-form">
+                            <input type="search" placeholder="search now">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                        <div class="header-social">
+                            {% if request.session.username %}
+                                <span>欢迎&nbsp;&nbsp;{{ request.session.username }}</span>
+                            {% else %}
+                                <a href="{% url 'user:login' %}">
+                                <span>
+                                <img src="/static/user/login.png" alt=""
+                                     style="height: 40px">
+                                登录
+                            </span>
+                                </a>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                    <nav id="menu" class="d-none d-lg-block">
+                        <ul>
+                            <li class="current-menu-item">
+                                <a href="{% url 'user:index' %}">主页</a>
+                            </li>
+                            <li><a href="{% url 'user:list_star' %}">我的关注</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="portfolio-area sp">
+        <div class="container">
+            <div class="section-title">
+                <h2>{{ request.session.username }}关注的医生</h2>
+            </div>
+            <div class="testimonial-slider">
+                {% for data in doctors %}
+                    {% if forloop.counter < 5 %}
+                        <div class="single-slide" style="height: 550px">
+                            <div class="inner">
+                                <div class="client-info">
+                                    <div class="client-img">
+                                        <img src="../../static/answer/img/client.jpg" alt="client">
+                                    </div>
+                                    <div class="client-data">
+                                        <h4>{{ data.name }}</h4><br>
+                                        <span>{{ data.position }}</span><br><br>
+                                        <span>{{ data.department }}</span><br><br>
+                                        <span>{{ data.hospital }}</span><br><br>
+                                        <span>关注量:{{ data.stars }} </span><br><br>
+                                        <span>注册时间:{{ data.register_time }}</span><br><br><br><br>
+                                    </div>
+                                    <div class="client-data">
+                                        <span style="color: black;font-size: 18px;line-height: 35px">简介:{{ data.speciality }} </span><br><br>
+
+                                        <a style="color: white;position: absolute;bottom:20px;right: 20px"
+                                           onclick="star_doctor('{{ data.doc_id }}')"
+                                           class="button">联系此人</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="copyright-txt">
+                            Joker &copy; 2021.天宇医疗集团.
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-right">
+                        <div class="footer-nav">
+                            <a style="color:white;"
+                               href="https://blog.csdn.net/Weary_PJ?spm=1000.2115.3001.5343">联系作者</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+</div>
+
+<!--Required JS files-->
+<script src="../../static/answer/js/jquery-2.2.4.min.js"></script>
+<script src="../../static/answer/js/vendor/popper.min.js"></script>
+<script src="../../static/answer/js/vendor/bootstrap.min.js"></script>
+<script src="../../static/answer/js/vendor/owl.carousel.min.js"></script>
+<script src="../../static/answer/js/vendor/isotope.pkgd.min.js"></script>
+<script src="../../static/answer/js/vendor/jquery.barfiller.js"></script>
+<script src="../../static/answer/js/vendor/loopcounter.js"></script>
+<script src="../../static/answer/js/vendor/slicknav.min.js"></script>
+<script src="../../static/answer/js/active.js"></script>
+
+</body>
+
+</html>
